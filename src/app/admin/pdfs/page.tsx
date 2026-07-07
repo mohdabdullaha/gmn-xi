@@ -60,15 +60,7 @@ const PDFManager: React.FC = () => {
         }
     };
 
-    const TabButton: React.FC<TabButtonProps> = ({ value, label, icon: IconComponent }) => (
-        <button 
-            onClick={() => setActiveTab(value)}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold transition-all ${activeTab === value ? 'bg-navy text-white shadow-lg' : 'text-navy/40 hover:text-navy'}`}
-        >
-            <IconComponent size={18} />
-            {label}
-        </button>
-    );
+    // TabButton removed, will inline it below.
 
     return (
         <PageLayout 
@@ -87,7 +79,13 @@ const PDFManager: React.FC = () => {
             )}
         >
             <div className="bg-white rounded-3xl p-2 border border-ice-border shadow-sm mb-12 flex max-w-md mx-auto">
-                <TabButton value="infographics" label="INFOGRAPHICS" icon={ImageIcon} />
+                <button 
+                    onClick={() => setActiveTab('infographics')}
+                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold transition-all ${activeTab === 'infographics' ? 'bg-navy text-white shadow-lg' : 'text-navy/40 hover:text-navy'}`}
+                >
+                    <ImageIcon size={18} />
+                    INFOGRAPHICS
+                </button>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">

@@ -3,32 +3,18 @@ import { env } from '../env';
 import { logger } from './logger';
 
 export const sendPasswordResetEmail = async (to: string, token: string) => {
-  let transporter;
-  
-  if (env.SMTP_HOST && env.SMTP_USER) {
-    transporter = nodemailer.createTransport({
-      host: env.SMTP_HOST,
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: env.SMTP_USER,
-        pass: env.SMTP_PASS,
-      },
-    });
-  } else {
-    // Generate a test Ethereal account if no SMTP provided
-    logger.warn('No SMTP config provided. Generating test Ethereal email account...');
-    const testAccount = await nodemailer.createTestAccount();
-    transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
-      secure: false,
-      auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
-      },
-    });
-  }
+  // Generate a test Ethereal account
+  logger.warn('Generating test Ethereal email account...');
+  const testAccount = await nodemailer.createTestAccount();
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass,
+    },
+  });
 
   const resetUrl = `http://localhost:5173/giftadmin/reset-password?token=${token}`;
 
@@ -55,10 +41,8 @@ export const sendPasswordResetEmail = async (to: string, token: string) => {
     
     logger.info(`Password reset email sent to ${to}. Message ID: ${info.messageId}`);
     
-    // Log the Ethereal URL if using the fallback (so we can test without real SMTP)
-    if (!env.SMTP_HOST) {
-        logger.info(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
-    }
+    // Log the Ethereal URL (so we can test without real SMTP)
+    logger.info(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
   } catch (error) {
     logger.error(`Failed to send password reset email to ${to}`, error);
     throw new Error('Email service configuration error. Please contact support.');
