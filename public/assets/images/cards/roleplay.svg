@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#124171"/>
+      <stop offset="100%" stop-color="#0b2b50"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#g)" rx="24" ry="24"/>
+  <text x="50%" y="48%" fill="#f7fbff" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700" text-anchor="middle">Role Play</text>
+  <text x="50%" y="60%" fill="#f7fbff" font-size="30" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Practice Truthful Talk</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b2b50"/>
+      <stop offset="100%" stop-color="#1a8f2d"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#g)" rx="24" ry="24"/>
+  <text x="50%" y="48%" fill="#f1f8ff" font-size="48" font-family="Segoe UI, Arial, sans-serif" font-weight="700" text-anchor="middle">Mirror Moments</text>
+  <text x="50%" y="60%" fill="#f1f8ff" font-size="28" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Reflection Writing</text>
+</svg>

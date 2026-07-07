@@ -1,0 +1,66 @@
+"use client";
+// Fixed syntax error
+import React, { useEffect } from 'react';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PremiumHero from "@/components/PremiumHero";
+import AudioPlayer from "@/components/AudioPlayer";
+import NavGrid from "@/components/NavGrid";
+import { motion } from 'framer-motion';
+import SectionHeading from "@/components/SectionHeading";
+import { content } from "@/data/content";
+
+const heroImg = '/img.jpg';
+
+const QuestionsCuriosity = () => {
+    const data = content.curiosity.questions as any;
+
+    useEffect(() => { window.scrollTo(0, 0); }, []);
+
+    return (
+        <div className="min-h-screen flex flex-col bg-white">
+            <Navbar pageTitle="Reflective Questions" />
+
+            <main className="flex-grow">
+                <PremiumHero
+                    image={heroImg}
+                    title={data.title}
+                    subtitle="Hikmah /Knowledge & Wisdom"
+                    intro="Deepening Your Inquiry"
+                />
+
+                <section className="max-w-7xl mx-auto px-6 py-16 text-center">
+                    <div className="max-w-4xl mx-auto">
+                        <SectionHeading>Reflective <span className="text-green">Questions</span></SectionHeading>
+
+                        <div className="bg-ice border border-ice-border p-8 rounded-2xl shadow-sm my-10 border-t-8 border-t-green">
+                            <ul className="space-y-6">
+                                {data.list.map((q: any, idx: number) => (
+                                    <motion.li
+                                        key={q?.id || q?.title || idx}
+                                        initial={{ y: 20, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ delay: idx * 0.1 }}
+                                        className="bg-white p-5 rounded-xl shadow-sm border border-ice-border text-gray-700 text-2xl leading-relaxed list-disc list-inside marker:text-green marker:text-2xl text-left"
+                                    >
+                                        {q}
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {data.audios?.english && (
+                            <AudioPlayer englishSrc={data.audios.english} />
+                        )}
+                    </div>
+
+                    <NavGrid excludeId="curiosity-questions" section="curiosity" />
+                </section>
+            </main>
+
+            <Footer />
+        </div>
+    );
+};
+
+export default QuestionsCuriosity;
