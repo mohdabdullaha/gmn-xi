@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from 'next/link';
+import Image from 'next/image';
 
 import SectionHeading from "@/components/SectionHeading";
 
@@ -54,10 +55,12 @@ const MotivationalVideos = () => {
                             >
                                 <div className="bg-white rounded-xl shadow overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
                                     <div className="relative aspect-video">
-                                        <img
+                                        <Image
                                             src={thumbnail}
                                             alt={video.title}
-                                            className="w-full h-full object-cover"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                            className="object-cover"
                                         />
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                                             <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform">

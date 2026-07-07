@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -48,7 +49,7 @@ const Justice = () => {
                             <motion.div key={topic.id} custom={index} variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                                 <Link href={topic.path} className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-100 hover:border-green/25 transition-all duration-300 transform hover:-translate-y-2">
                                     <div className="relative h-44 overflow-hidden">
-                                        <img src={heroImg} alt={topic.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                        <Image src={heroImg} alt={topic.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-110" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
                                         <div className="absolute top-4 right-4 bg-green/90 p-2.5 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">{topic.icon}</div>
                                         <div className="absolute bottom-3 left-4 text-white/40 text-5xl font-black leading-none select-none">{String(index + 1).padStart(2, '0')}</div>

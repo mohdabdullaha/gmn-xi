@@ -7,6 +7,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { content } from "@/data/content";
 import { motion, Variants } from 'framer-motion';
 import { Quote, Award, Shield, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const About: React.FC = () => {
     const { projectTeam } = content;
@@ -101,10 +102,12 @@ const About: React.FC = () => {
                                         {/* Leader Photo */}
                                         <div className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 shrink-0 relative group rounded-[2rem] overflow-hidden shadow-xl border-4 border-white cursor-pointer">
                                             <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-300 z-10"></div>
-                                            <img
+                                            <Image
                                                 src={leader.image}
                                                 alt={leader.name}
-                                                className="w-full h-full object-cover object-top relative z-0 transition-transform duration-700 group-hover:scale-110"
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                                className="object-cover object-top relative z-0 transition-transform duration-700 group-hover:scale-110"
                                             />
                                             
                                             {/* Decorative Elements - small blue bar by default */}
@@ -180,10 +183,12 @@ const About: React.FC = () => {
                                 className="group relative rounded-[1.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-[300px] cursor-pointer"
                             >
                                 {/* Background Image */}
-                                <img
+                                <Image
                                     src={member.image}
                                     alt={member.name}
-                                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                                    className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                                 />
                                 
                                 {/* Gradient Overlay */}

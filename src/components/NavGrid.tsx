@@ -1,6 +1,7 @@
 "use client";
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { motion, Variants } from 'framer-motion';
 import { content } from "@/data/content";
@@ -225,10 +226,12 @@ const NavGrid: React.FC<NavGridProps> = ({ excludeId, section, showTitle = true 
                             >
                                 {/* Card Image */}
                                 <div className="relative h-40 overflow-hidden">
-                                    <img
+                                    <Image
                                         src={defaultImg}
                                         alt={card.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
 

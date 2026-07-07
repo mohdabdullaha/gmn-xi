@@ -2,6 +2,7 @@
 import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // ── Types ─────────────────────────────────────────────────────
 interface HeroButton {
@@ -43,10 +44,12 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
         transition={{ duration: 10, ease: 'easeOut' }}
         className="absolute inset-0 z-0"
       >
-        <img
+        <Image
           src={image}
           alt={typeof title === 'string' ? title : 'Hero'}
-          className="w-full h-full object-cover opacity-50"
+          fill
+          priority
+          className="object-cover opacity-50"
         />
       </motion.div>
 

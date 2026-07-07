@@ -1,5 +1,6 @@
 import React from 'react';
 import { content } from "@/data/content";
+import Image from 'next/image';
 
 const Footer = () => {
     const { metadata } = content;
@@ -22,15 +23,17 @@ const Footer = () => {
                     {/* Column 1 — Brand */}
                     <div className="flex flex-col gap-5 items-start text-left">
                         <div className="flex items-center gap-4">
-                            <img
+                            <Image
                                 src="/assets/logo/GMN-Starburst.png"
                                 alt="GMN Logo"
-                                className="h-14 object-contain shrink-0"
+                                width={56} height={56}
+                                className="h-14 w-auto object-contain shrink-0"
                             />
-                            <img
+                            <Image
                                 src="/assets/logo/GIFT-University-White.png"
                                 alt="GIFT University"
-                                className="h-10 object-contain"
+                                width={160} height={40}
+                                className="h-10 w-auto object-contain"
                             />
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -47,7 +50,7 @@ const Footer = () => {
                                     className="p-1.5 hover:scale-110 transition-transform duration-300"
                                     title={social.alt}
                                 >
-                                    <img src={social.icon} alt={social.alt} className="h-5 w-5 object-contain" />
+                                    <Image src={social.icon} alt={social.alt} width={20} height={20} className="h-5 w-5 object-contain" />
                                 </a>
                             ))}
                         </div>
@@ -58,19 +61,19 @@ const Footer = () => {
                         <h4 className="text-[11px] font-black text-gold uppercase tracking-[0.3em] mb-1 sm:text-right">Contact Us</h4>
                         <ul className="space-y-3 text-sm text-gray-400 flex flex-col sm:items-end">
                             <li className="flex items-start gap-3 sm:flex-row-reverse sm:text-right">
-                                <img src="/assets/logo/location.png" alt="" className="h-4 mt-0.5 opacity-70 shrink-0" />
+                                <Image src="/assets/logo/location.png" alt="" width={16} height={16} className="h-4 w-auto mt-0.5 opacity-70 shrink-0" />
                                 <span className="leading-snug">{metadata.contact.location}</span>
                             </li>
                             <li className="flex items-center gap-3 sm:flex-row-reverse sm:text-right">
-                                <img src="/assets/logo/Services.png" alt="" className="h-4 opacity-70 shrink-0" />
+                                <Image src="/assets/logo/Services.png" alt="" width={16} height={16} className="h-4 w-auto opacity-70 shrink-0" />
                                 <span>{metadata.contact.phone}</span>
                             </li>
                             <li className="flex items-center gap-3 sm:flex-row-reverse sm:text-right">
-                                <img src="/assets/logo/Call.png" alt="" className="h-4 opacity-70 shrink-0" />
+                                <Image src="/assets/logo/Call.png" alt="" width={16} height={16} className="h-4 w-auto opacity-70 shrink-0" />
                                 <span>{metadata.contact.altPhone}</span>
                             </li>
                             <li className="flex items-center gap-3 sm:flex-row-reverse sm:text-right">
-                                <img src="/assets/logo/Web.png" alt="" className="h-4 opacity-70 shrink-0" />
+                                <Image src="/assets/logo/Web.png" alt="" width={16} height={16} className="h-4 w-auto opacity-70 shrink-0" />
                                 <a
                                     href={`https://${metadata.contact.web}`}
                                     target="_blank"

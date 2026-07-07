@@ -8,6 +8,7 @@ import NavGrid from "@/components/NavGrid";
 import { motion } from 'framer-motion';
 import SectionHeading from "@/components/SectionHeading";
 import { content } from "@/data/content";
+import Image from 'next/image';
 
 const heroImg = '/img.jpg';
 
@@ -45,7 +46,7 @@ const Creativity = () => {
                                 </div>
                             </motion.div>
                             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative">
-                                <img src={heroImg} alt="Conceptual" className="rounded-3xl shadow-2xl" />
+                                <Image src={heroImg} alt="Conceptual" width={600} height={400} className="w-full h-auto rounded-3xl shadow-2xl" />
                                 <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-2xl shadow-xl max-w-xs hidden md:block border border-gray-100">
                                     <p className="text-navy font-medium italic">"Combine knowledge, experience, and imagination."</p>
                                 </div>

@@ -9,6 +9,7 @@ import { content } from "@/data/content";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Eye, Target, ArrowRight, X, Quote } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 const defaultImg = '/img.jpg';
@@ -131,7 +132,7 @@ const Home = () => {
                                     
                                     <div>
                                         <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-2 border-ice shadow-sm group-hover:border-gold transition-colors duration-300">
-                                            <img src={leader.image} alt={leader.name} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110" />
+                                            <Image src={leader.image} alt={leader.name} width={96} height={96} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110" />
                                         </div>
                                         <h3 className="text-xl font-bold text-navy group-hover:text-gold transition-colors duration-300">{leader.name}</h3>
                                         <p className="text-xs font-black text-gold/80 uppercase tracking-widest mt-1 mb-4">{leader.role}</p>
@@ -249,10 +250,12 @@ const Home = () => {
 
                             {/* Left Side: Leader Portrait */}
                             <div className="w-full md:w-1/3 bg-navy relative h-56 md:h-auto shrink-0">
-                                <img
+                                <Image
                                     src={selectedLeader.image}
                                     alt={selectedLeader.name}
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent md:bg-gradient-to-r md:from-transparent md:via-navy/30 md:to-navy/90"></div>
                             </div>

@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 import { content } from "@/data/content";
@@ -359,7 +360,7 @@ const Navbar = ({ pageTitle }: { pageTitle?: string }) => {
                         <Link href="/" onClick={closeMenu} className="flex items-center group">
                             <div className="relative">
                                 <div className="absolute inset-0 bg-gold blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
-                                <img src="/assets/logo/GMN-Starburst.png" alt="Logo" className="h-[45px] md:h-[55px] lg:h-[65px] transition-transform duration-500 ease-out group-hover:scale-105 relative z-10" />
+                                <Image src="/assets/logo/GMN-Starburst.png" alt="Logo" width={65} height={65} className="h-[45px] w-auto md:h-[55px] lg:h-[65px] transition-transform duration-500 ease-out group-hover:scale-105 relative z-10" priority />
                             </div>
                         </Link>
                     </div>
@@ -437,7 +438,7 @@ const Navbar = ({ pageTitle }: { pageTitle?: string }) => {
                                 {/* Drawer Header */}
                                 <div className="p-4 md:p-5 border-b border-white/5 flex justify-between items-center bg-[#081225]">
                                     <div className="flex items-center">
-                                        <img src="/assets/logo/GMN-Starburst.png" alt="Logo" className="h-[40px] drop-shadow-md" />
+                                        <Image src="/assets/logo/GMN-Starburst.png" alt="Logo" width={40} height={40} className="h-[40px] w-auto drop-shadow-md" />
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <div className="text-right flex flex-col justify-center">
@@ -463,7 +464,7 @@ const Navbar = ({ pageTitle }: { pageTitle?: string }) => {
                                 {/* Drawer Footer */}
                                 <div className="p-6 border-t border-white/5 bg-[#081225]/50 mt-auto">
                                     <p className="flex justify-center items-center gap-2 mb-6">
-                                        <img src="/assets/logo/Web.png" alt="Web" className="h-[14px] opacity-80" />
+                                        <Image src="/assets/logo/Web.png" alt="Web" width={14} height={14} className="h-[14px] w-auto opacity-80" />
                                         <a href={`https://${content.metadata.contact.web}`} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold/80 text-sm transition-all duration-300 font-bold tracking-wider">
                                             {content.metadata.contact.web}
                                         </a>
@@ -480,7 +481,7 @@ const Navbar = ({ pageTitle }: { pageTitle?: string }) => {
                                             { icon: '/assets/logo/WhatsApp.png', url: content.metadata.socials.whatsapp, alt: 'WhatsApp' },
                                         ].map((social: any, idx: number) => (
                                             <a key={social?.id || social?.title || idx} href={social.url} target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:-translate-y-1 hover:drop-shadow-[0_0_10px_rgba(255,193,7,0.5)] bg-white/5 p-2 rounded-lg border border-white/5 hover:border-gold/30 hover:bg-white/10">
-                                                <img src={social.icon} alt={social.alt} className="h-5 transition-all" />
+                                                <Image src={social.icon} alt={social.alt} width={20} height={20} className="h-5 w-auto transition-all" />
                                             </a>
                                         ))}
                                     </div>
