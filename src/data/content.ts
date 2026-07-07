@@ -2019,7 +2019,7 @@ export const content = {
             },
             {
                 name: "Ms Aqsa Shahzadi",
-                role: "Research Assistant & Quran Reciter",
+                role: "Research Assistant & Quranic Reciter",
                 image: "/assets/team/aqsa-shahzadi.jpg"
             }
         ]
